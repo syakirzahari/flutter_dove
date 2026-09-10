@@ -11,8 +11,21 @@ class DoveDeviceIdStore {
   static const _prefsKey = 'flutter_dove.device_id';
   static const _uuid = Uuid();
 
-  Future<String> getOrCreate() async {
+  /// Returns the persisted device id, or generates and persists a new UUID
+  /// v4 if none exists yet.
+  ///
+  /// Pass [deviceId] to override the persisted value with a caller-supplied
+  /// id (e.g. one derived from the host app's own user/account system)
+  /// instead of the generated UUID; it is persisted the same way so it stays
+  /// stable across subsequent calls that omit it.
+  Future<String> getOrCreate({String? deviceId}) async {
     final prefs = await SharedPreferences.getInstance();
+
+    if (deviceId != null && deviceId.isNotEmpty) {
+      await prefs.setString(_prefsKey, deviceId);
+      return deviceId;
+    }
+
     final existing = prefs.getString(_prefsKey);
     if (existing != null && existing.isNotEmpty) return existing;
 

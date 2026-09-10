@@ -64,12 +64,18 @@ class FlutterDove {
   ///
   /// Set [requestPermission] to `false` if your app requests notification
   /// permission itself elsewhere.
+  ///
+  /// Pass [deviceId] to use a caller-supplied device identifier instead of
+  /// the package's default persisted UUID. It's persisted the same way, so
+  /// omitting it on later [initialize] calls keeps reusing the value passed
+  /// (or generated) the first time.
   Future<void> initialize({
     required String baseUrl,
     required String apiKey,
     FirebaseOptions? firebaseOptions,
     bool requestPermission = true,
     http.Client? httpClient,
+    String? deviceId,
   }) async {
     await ensureFirebaseInitialized(options: firebaseOptions);
 
@@ -79,7 +85,7 @@ class FlutterDove {
       httpClient: httpClient,
     );
 
-    _deviceId = await _deviceIdStore.getOrCreate();
+    _deviceId = await _deviceIdStore.getOrCreate(deviceId: deviceId);
 
     final messaging = FirebaseMessaging.instance;
 
