@@ -1,6 +1,6 @@
 name: flutter_dove
 description: "Registers app devices and their FCM tokens with an OST Push backend, and surfaces incoming Firebase Cloud Messaging notifications."
-version: 0.0.1
+version: 0.0.2
 homepage:
 
 environment:
