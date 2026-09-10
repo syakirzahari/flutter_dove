@@ -33,7 +33,7 @@ Future<void> main() async {
   FirebaseMessaging.onBackgroundMessage(_onBackgroundMessage);
 
   await FlutterDove.instance.initialize(
-    baseUrl: const String.fromEnvironment('OST_PUSH_BASE_URL', defaultValue: 'https://push.example.com'),
+    baseUrl: const String.fromEnvironment('OST_PUSH_BASE_URL', defaultValue: 'https://ostmerpati.tryzone.my'),
     apiKey: const String.fromEnvironment('OST_PUSH_API_KEY'),
     firebaseOptions: _firebaseOptions,
   );

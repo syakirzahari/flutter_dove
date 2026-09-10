@@ -122,7 +122,7 @@ it (sent as `Authorization: Bearer <key>` — see `AuthenticateApiKey`). Keep
 this key out of source control — pass it in at build time instead:
 
 ```bash
-flutter run --dart-define=OST_PUSH_API_KEY=xxxxx --dart-define=OST_PUSH_BASE_URL=https://push.example.com
+flutter run --dart-define=OST_PUSH_API_KEY=xxxxx --dart-define=OST_PUSH_BASE_URL=https://ostmerpati.tryzone.my
 ```
 
 ### 6. Initialize in `main()`

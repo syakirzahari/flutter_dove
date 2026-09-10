@@ -52,7 +52,7 @@ class FlutterDove {
   /// backend at [baseUrl] using [apiKey].
   ///
   /// [baseUrl] is the root URL of the `ost-push` deployment (e.g.
-  /// `https://push.example.com`) — the `/api/...` paths are appended
+  /// `https://ostmerpati.tryzone.my`) — the `/api/...` paths are appended
   /// automatically. [apiKey] is the raw per-app key issued via the backend's
   /// API key management screen (sent as `Authorization: Bearer <apiKey>`).
   ///
